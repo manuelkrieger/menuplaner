@@ -30,7 +30,7 @@ class UnityController extends Controller
     }
 
     /**
-     * @Route("/project/add", name="unity_add")
+     * @Route("/unity/add", name="unity_add")
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
