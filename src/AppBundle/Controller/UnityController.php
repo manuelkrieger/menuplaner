@@ -19,7 +19,7 @@ class UnityController extends Controller
     public function listAction(Request $request)
     {
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_UNITY_LIST')) {
-            $this->addFlash('danger', 'unity.list_not_allowed');
+            $this->addFlash('danger', 'action_not_allowed');
             return $this->redirectToRoute('homepage');
         }
         $unityRepository = $this->getDoctrine()->getRepository('AppBundle:Unity');
@@ -38,7 +38,7 @@ class UnityController extends Controller
     public function addAction(Request $request)
     {
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_UNITY_ADD')) {
-            $this->addFlash('danger', 'unity.add_not_allowed');
+            $this->addFlash('danger', 'action_not_allowed');
             return $this->redirectToRoute('unity_list');
         }
         $unity = new Unity();
@@ -77,7 +77,7 @@ class UnityController extends Controller
     public function editAction(Request $request, Unity $unity)
     {
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_UNITY_EDIT')) {
-            $this->addFlash('danger', 'unity.edit_not_allowed');
+            $this->addFlash('danger', 'action_not_allowed');
             return $this->redirectToRoute('unity_list');
         }
         $form = $this->createForm(UnityType::class, $unity);
@@ -113,7 +113,7 @@ class UnityController extends Controller
     public function deleteAction(Request $request, Unity $unity)
     {
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_UNITY_DELETE')) {
-            $this->addFlash('danger', 'unity.delete_not_allowed');
+            $this->addFlash('danger', 'action_not_allowed');
         } else {
             $unity->setDisabled($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();

@@ -14,6 +14,10 @@
         <source>warning</source>
         <target>Warnung</target>
       </trans-unit>
+      <trans-unit id="action_not_allowed">
+        <source>action_not_allowed</source>
+        <target>Du bist nicht berechtig, diese Aktion auzuführen</target>
+      </trans-unit>
       <trans-unit id="edit">
         <source>edit</source>
         <target>bearbeiten</target>
@@ -105,10 +109,6 @@
       <trans-unit id="unity.deleted_successfully">
         <source>unity.deleted_successfully</source>
         <target>Einheit wurde erfolgreich gelöscht</target>
-      </trans-unit>
-      <trans-unit id="unity.delete_not_allowed">
-        <source>unity.delete_not_allowed</source>
-        <target>Du bist nicht berechtig, die EInheit zu löschen</target>
       </trans-unit>
     </body>
   </file>
