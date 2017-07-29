@@ -8,8 +8,11 @@
           <ul class="sidebar-elements">
             <li class="divider">Menu</li>
             {{ navhelper.menuItem(path('homepage'), 'view-dashboard', 'Dashboard') }}
-            {% if is_granted('ROLE_ADMIN') %}
-                {{ navhelper.menuItem(path('users_list'), 'accounts', 'Benutzer', isSameRoute('users_list')) }}
+            {% if is_granted('ROLE_UNITY_CRUD') %}
+              {{ navhelper.menuItem(path('unity_list'), 'ruler', 'Einheiten', isSameRoute('unity_list')) }}
+            {% endif %}
+            {% if is_granted('ROLE_USER_CRUD') %}
+              {{ navhelper.menuItem(path('users_list'), 'accounts', 'Benutzer', isSameRoute('users_list')) }}
             {% endif %}
             <li>
               <a href="http://foxythemes.net/preview/products/beagle2/" target="_blank">Template-Demo</a>

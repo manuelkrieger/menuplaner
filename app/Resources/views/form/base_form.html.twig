@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 col-lg-6">
+      {{ form_start(form) }}
+      {% embed '_patterns/panel.html.twig' with {'hasFooter': true} %}
+        {% set panelClass = 'panel-border-color panel-border-color-primary' %}
+        {% block panelHeader %}
+          {{ title | trans }}
+        {% endblock %}
+        {% block panelContent %}
+          {{ form_widget(form) }}
+        {% endblock %}
+        {% block panelFooter %}
+          <button class="btn btn-space btn-primary">
+            <i
+              class="icon icon-left mdi mdi-{{ button_icon | default('save') }}"></i> {{ (button_label | default('save')) | trans }}
+          </button>
+        {% endblock %}
+      {% endembed %}
+      {{ form_end(form) }}
+    </div>
+  </div>
+{% endblock %}

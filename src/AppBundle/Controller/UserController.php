@@ -24,12 +24,11 @@ class UserController extends Controller
         $users = $this->getDoctrine()->getRepository('AppBundle:User')->findAllActive();
 
         return $this->render(
-            'user/users.html.twig', [
+            'user/list.html.twig', [
                 'users' => $users
             ]
         );
     }
-
 
     /**
      * Matches /user/add

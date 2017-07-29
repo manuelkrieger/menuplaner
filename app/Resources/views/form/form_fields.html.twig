@@ -1,0 +1,38 @@
+{% use "bootstrap_3_layout.html.twig" %}
+
+{% block form_widget_simple -%}
+    {% if type is not defined or type not in ['file', 'hidden'] %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control input-sm')|trim}) -%}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
+{% block choice_widget_collapsed -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control input-sm')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block form_label_class -%}
+    col-sm-2
+{%- endblock form_label_class %}
+
+{% block form_group_class -%}
+    col-sm-10
+{%- endblock form_group_class %}
+
+{%- block button_widget -%}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+            '%name%': name,
+            '%id%': id,
+            }) %}
+        {%- else -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{%- if attr['button_icon'] is defined -%}
+            <i
+            class="icon icon-left mdi mdi-{{ attr['button_icon'] }}"></i>&nbsp;{%- endif -%}{{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
+    </button>
+{%- endblock button_widget -%}

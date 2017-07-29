@@ -16,10 +16,16 @@ security:
             - ROLE_USER
             - ROLE_USER_CRUD
             - ROLE_USER_LIST
+            - ROLE_UNITY_CRUD
+            - ROLE_UNITY_LIST
         ROLE_USER_CRUD:
             - ROLE_USER_ADD
             - ROLE_USER_EDIT
             - ROLE_USER_DISABLE
+        ROLE_UNITY_CRUD:
+            - ROLE_UNITY_ADD
+            - ROLE_UNITY_EDIT
+            - ROLE_UNITY_DELETE
 
     firewalls:
         dev:

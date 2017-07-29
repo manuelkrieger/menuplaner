@@ -22,6 +22,10 @@
         <source>save</source>
         <target>Speichern</target>
       </trans-unit>
+      <trans-unit id="actions">
+        <source>actions</source>
+        <target>Aktionen</target>
+      </trans-unit>
       <trans-unit id="user.name">
         <source>user.name</source>
         <target>Name</target>
@@ -33,10 +37,6 @@
       <trans-unit id="user.roles">
         <source>user.roles</source>
         <target>Benutzer-Rollen</target>
-      </trans-unit>
-      <trans-unit id="user.actions">
-        <source>user.actions</source>
-        <target>Aktion</target>
       </trans-unit>
       <trans-unit id="user.change_password">
         <source>user.change_password</source>
@@ -77,6 +77,38 @@
       <trans-unit id="user.username">
         <source>user.username</source>
         <target>Benutzername</target>
+      </trans-unit>
+      <trans-unit id="unity.add">
+        <source>unity.add</source>
+        <target>Einheit hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="unity.edit">
+        <source>unity.edit</source>
+        <target>Einheit bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="unity.label">
+        <source>unity.label</source>
+        <target>Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="unity.short">
+        <source>unity.short</source>
+        <target>Abkürzung</target>
+      </trans-unit>
+      <trans-unit id="unity.added_successfully">
+        <source>unity.added_successfully</source>
+        <target>Einheit wurde erfolgreich erfasst</target>
+      </trans-unit>
+      <trans-unit id="unity.updated_successfully">
+        <source>unity.updated_successfully</source>
+        <target>Einheit wurde erfolgreich aktualisiert</target>
+      </trans-unit>
+      <trans-unit id="unity.deleted_successfully">
+        <source>unity.deleted_successfully</source>
+        <target>Einheit wurde erfolgreich gelöscht</target>
+      </trans-unit>
+      <trans-unit id="unity.delete_not_allowed">
+        <source>unity.delete_not_allowed</source>
+        <target>Du bist nicht berechtig, die EInheit zu löschen</target>
       </trans-unit>
     </body>
   </file>
