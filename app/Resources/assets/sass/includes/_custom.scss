@@ -1,0 +1,30 @@
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-group {
+  display: flex;
+}
+
+@for $i from 1 through length($service-group-colors) {
+  .service-row#{$i} {
+    background: nth($service-group-colors, $i);
+  }
+  .service-row#{$i}-sub {
+    background: lighten(nth($service-group-colors, $i), 20%);
+  }
+}
+
+.table.servicecatalog {
+  tr.service-item {
+    cursor: pointer;
+  }
+}
+
+.table.price-list {
+  input {
+    text-align: right;
+    width: 100px;
+  }
+}
