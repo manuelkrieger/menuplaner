@@ -18,10 +18,12 @@ class FoodRepository extends EntityRepository
         ]);
     }
 
-    public function findAllActive()
+    public function getAllAsArray()
     {
-        return $this->findByDefaultSort([
-            'disabledAt' => null
-        ]);
+        $foods = [];
+        foreach ($this->findByDefaultSort([]) as $food) {
+            $foods[$food->getId()] = $food;
+        }
+        return $foods;
     }
 }

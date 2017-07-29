@@ -14,6 +14,11 @@
             {% if is_granted('ROLE_FOOD_LIST') %}
               {{ navhelper.menuItem(path('food_list'), 'pizza', 'Lebensmittel', isSameRoute('food_list')) }}
             {% endif %}
+            {% if is_granted('ROLE_MEAL_LIST') %}
+              {{ navhelper.menuItem(path('meal_list'), 'receipt', 'Menüs', isSameRoute('meal_list')) }}
+            {% endif %}
+
+            <li class="divider">Admin</li>
             {% if is_granted('ROLE_USER_LIST') %}
               {{ navhelper.menuItem(path('users_list'), 'accounts', 'Benutzer', isSameRoute('users_list')) }}
             {% endif %}

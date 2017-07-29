@@ -2,13 +2,13 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Unity;
+use AppBundle\Entity\Meal;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class UnityType extends AbstractType
+class MealType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -18,19 +18,19 @@ class UnityType extends AbstractType
     {
         $builder
             ->add('name', null, [
-                'label' => 'unity.name',
+                'label' => 'meal.name',
                 'required' => true
             ])
-            ->add('short', null, [
-                'label' => 'unity.short',
-                'required' => true
+            ->add('instructions', null, [
+                'label' => 'meal.instructions',
+                'required' => false
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Unity::class
+            'data_class' => Meal::class
         ]);
     }
 }

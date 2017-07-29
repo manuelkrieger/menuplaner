@@ -11,13 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Ingredient extends AbstractEntity
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=100, nullable=false)
-     */
-    private $name;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Food")
      * @ORM\JoinColumn(name="food_id", referencedColumnName="id", nullable=false)
      */
@@ -42,30 +35,6 @@ class Ingredient extends AbstractEntity
      * @ORM\Column(type="integer", nullable=false)
      */
     private $sort;
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Ingredient
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set qty

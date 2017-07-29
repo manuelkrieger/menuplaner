@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  {{ form_start(form) }}
+  <div class="row">
+    <div class="col-md-8 col-lg-6">
+      {% embed '_patterns/panel.html.twig' %}
+        {% set panelClass = 'panel-border-color panel-border-color-primary' %}
+        {% block panelHeader %}
+          Zutaten
+        {% endblock %}
+        {% block panelContent %}
+          <div class="row">
+            <div class="col-sm-10">
+              <select id="food" class="form-control input-sm select2">
+                {% for food in foods %}
+                  <option value="{{ food.id }}">{{ food.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <button id="add-ingredient" class="btn btn-space btn-primary">
+                <i class="icon icon-left mdi mdi-plus"></i>
+              </button>
+            </div>
+          </div>
+          <br/>
+          <table id="ingredients" class="table table-hover table-fw-widget">
+            <thead>
+            <tr>
+              <th>{{ 'food.name'|trans }}</th>
+              <th class="col-qty">{{ 'incredient.qty'|trans }}</th>
+              <th class="col-actions"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="no-ingredients">
+              <td colspan="3">(noch keine Zutaten erfasst)</td>
+            </tr>
+            </tbody>
+          </table>
+        {% endblock %}
+      {% endembed %}
+    </div>
+    <div class="col-md-8 col-lg-6">
+      {% embed '_patterns/panel.html.twig' %}
+        {% set panelClass = 'panel-border-color panel-border-color-primary' %}
+        {% block panelHeader %}
+          {{ title | trans }}
+        {% endblock %}
+        {% block panelContent %}
+          {{ form_widget(form) }}
+        {% endblock %}
+      {% endembed %}
+    </div>
+  </div>
+  <button class="btn btn-space btn-primary">
+    <i class="icon icon-left mdi mdi-{{ button_icon | default('save') }}"></i>
+    {{ (button_label | default('save')) | trans }}
+  </button>
+  {{ form_end(form) }}
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    function removeIngredient(element) {
+      $(element.closest('tr')).remove();
+      if ($('#ingredients tbody tr').length === 1) {
+        $('#ingredients .no-ingredients').show();
+      }
+      return false;
+    }
+
+    $(document).ready(function () {
+
+      $('#add-ingredient').click(function () {
+        $('#ingredients tbody').append(
+          '<tr>' +
+          '<td>' + $('#food option:selected').text() + '</td>' +
+          '<td><input type="number" name="ingredient[][' + $('#food option:selected').val() + ']" value="1" class="form-control input-sm text-right"/></td>' +
+          '<td><a class="btn btn-danger btn-sm" href="#" onclick="removeIngredient(this);"data-toggle="tooltip" data-original-title="entfernen">' +
+          '<i class="icon icon-left mdi mdi-close"></i>' +
+          '</a></td>' +
+          '</tr>');
+        $('#ingredients .no-ingredients').hide();
+        return false;
+      });
+
+      $('#ingredients tbody').sortable({
+        placeholder: "ui-state-highlight"
+      }).disableSelection();
+    });
+  </script>
+{% endblock %}

@@ -17,6 +17,8 @@ security:
             - ROLE_FOOD_CRUD
             - ROLE_FOOD_LIST
             - ROLE_FOODGROUP_CRUD
+            - ROLE_MEAL_CRUD
+            - ROLE_MEAL_LIST
             - ROLE_USER_CRUD
             - ROLE_USER_LIST
             - ROLE_UNITY_CRUD
@@ -29,6 +31,10 @@ security:
             - ROLE_FOODGROUP_ADD
             - ROLE_FOODGROUP_EDIT
             - ROLE_FOODGROUP_DELETE
+        ROLE_MEAL_CRUD:
+            - ROLE_MEAL_ADD
+            - ROLE_MEAL_EDIT
+            - ROLE_MEAL_DISABLE
         ROLE_USER_CRUD:
             - ROLE_USER_ADD
             - ROLE_USER_EDIT

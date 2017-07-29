@@ -166,6 +166,38 @@
         <source>foodgroup.deleted_successfully</source>
         <target>Gruppe wurde erfolgreich gelöscht</target>
       </trans-unit>
+      <trans-unit id="meal.name">
+        <source>meal.name</source>
+        <target>Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="meal.instructions">
+        <source>meal.instructions</source>
+        <target>Anleitung / Hinweise</target>
+      </trans-unit>
+      <trans-unit id="meal.add">
+        <source>meal.add</source>
+        <target>Menu hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="meal.edit">
+        <source>meal.edit</source>
+        <target>Menu bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="meal.added_successfully">
+        <source>meal.added_successfully</source>
+        <target>Menu wurde erfolgreich erfasst</target>
+      </trans-unit>
+      <trans-unit id="meal.updated_successfully">
+        <source>meal.updated_successfully</source>
+        <target>Menu wurde erfolgreich aktualisiert</target>
+      </trans-unit>
+      <trans-unit id="meal.deleted_successfully">
+        <source>meal.deleted_successfully</source>
+        <target>Menu wurde erfolgreich gelöscht</target>
+      </trans-unit>
+      <trans-unit id="incredient.qty">
+        <source>incredient.qty</source>
+        <target>Menge</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
