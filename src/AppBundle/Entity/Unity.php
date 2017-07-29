@@ -15,7 +15,7 @@ class Unity extends AbstractDisableableEntity
      *
      * @ORM\Column(type="string", length=100, nullable=false)
      */
-    private $label;
+    private $name;
 
     /**
      * @var string
@@ -25,15 +25,23 @@ class Unity extends AbstractDisableableEntity
     private $short;
 
     /**
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->name . ' (' . $this->short . ')';
+    }
+
+    /**
      * Set label
      *
-     * @param string $label
+     * @param string $name
      *
      * @return Unity
      */
-    public function setLabel($label)
+    public function setName($name)
     {
-        $this->label = $label;
+        $this->name = $name;
 
         return $this;
     }
@@ -43,9 +51,9 @@ class Unity extends AbstractDisableableEntity
      *
      * @return string
      */
-    public function getLabel()
+    public function getName()
     {
-        return $this->label;
+        return $this->name;
     }
 
     /**

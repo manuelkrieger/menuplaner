@@ -11,7 +11,7 @@ $(document).ready(function ($) {
             }
         });
         $(this).DataTable({
-            "pageLength": 100,
+            "pageLength": 25,
             'language': {
                 'emptyTable': 'Keine Daten in der Tabelle vorhanden',
                 'info': '_START_ bis _END_ von _TOTAL_ Einträgen',

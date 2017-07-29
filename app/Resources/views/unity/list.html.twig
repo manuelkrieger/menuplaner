@@ -20,7 +20,7 @@
           {% import '_macro/helper.twig' as helper %}
           <thead>
           <tr>
-            <th>{{ 'unity.label'|trans }}</th>
+            <th>{{ 'unity.name'|trans }}</th>
             <th>{{ 'unity.short'|trans }}</th>
             <th>{{ 'actions'|trans }}</th>
           </tr>
@@ -28,7 +28,7 @@
           <tbody>
           {% for unity in unities %}
             <tr>
-              <td>{{ unity.label }}</td>
+              <td>{{ unity.name }}</td>
               <td>{{ unity.short }}</td>
               <td>
                 <div>

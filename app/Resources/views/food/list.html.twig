@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block actionbar %}
+  {% import '_macro/helper.twig' as helper %}
+  <div class="actionbar">
+    <div class="btn-group">
+      {% if is_granted('ROLE_FOOD_ADD') %}
+        {{ helper.button(path('food_add'), 'Lebensmittel hinzufügen', 'primary', 'plus-circle-o', 'btn-space') }}
+      {% endif %}
+      {% if is_granted('ROLE_FOODGROUP_ADD') %}
+        {{ helper.button(path('foodgroup_add'), 'Gruppe hinzufügen', 'primary', 'plus-circle-o', 'btn-space') }}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12 col-lg-8">
+      {% embed '_patterns/panel_table.html.twig' with {dataTable: true} %}
+        {% block panelHeader %}
+          Lebensmittel
+        {% endblock %}
+        {% block panelContent %}
+          {% import '_macro/helper.twig' as helper %}
+          <thead>
+          <tr>
+            <th data-sort="asc">{{ 'food.name'|trans }}</th>
+            <th>{{ 'food.group'|trans }}</th>
+            <th data-sortable="false">{{ 'actions'|trans }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for food in foods %}
+            <tr>
+              <td>{{ food.name }}</td>
+              <td>{{ food.group.name }}</td>
+              <td>
+                <div>
+                  {{ helper.button(path('food_edit', {'id': food.id}), '', 'info', 'edit', 'btn-sm', {'toggle':'tooltip', 'original-title':'Lebensmittel bearbeiten' }) }}
+                  {#{{ helper.button(path('unity_delete', {'id': unity.id}), '', 'danger', 'delete', 'btn-sm show-modal', {'modal': 'delete-modal', 'value': unity.label, 'toggle':'tooltip', 'original-title':'Einheit löschen' }) }}#}
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+        {% endblock %}
+      {% endembed %}
+    </div>
+    <div class="col-md-12 col-lg-4">
+      {% embed '_patterns/panel_table.html.twig' %}
+        {% block panelHeader %}
+          Gruppen
+        {% endblock %}
+        {% block panelContent %}
+          {% import '_macro/helper.twig' as helper %}
+          <thead>
+          <tr>
+            <th>{{ 'foodgroup.name'|trans }}</th>
+            <th>{{ 'actions'|trans }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for foodgroup in foodgroups %}
+            <tr>
+              <td>{{ foodgroup.name }}</td>
+              <td>
+                <div>
+                  {{ helper.button(path('foodgroup_edit', {'id': foodgroup.id}), '', 'info', 'edit', 'btn-sm', {'toggle':'tooltip', 'original-title':'Gruppe bearbeiten' }) }}
+                  {#{{ helper.button(path('unity_delete', {'id': unity.id}), '', 'danger', 'delete', 'btn-sm show-modal', {'modal': 'delete-modal', 'value': unity.label, 'toggle':'tooltip', 'original-title':'Einheit löschen' }) }}#}
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+        {% endblock %}
+      {% endembed %}
+    </div>
+  </div>
+  <div id="delete-modal" tabindex="-1" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+            <span class="mdi mdi-close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <div class="text-warning"><span class="modal-main-icon mdi mdi-alert-triangle"></span></div>
+            <h3 class="modal-title">Einheit wirklich löschen?</h3>
+            <p class="modal-body">Willst du die Einheit "<span class="value"></span>" wirklich löschen?</p>
+            <div class="xs-mt-50">
+              <button type="button" data-dismiss="modal" class="btn btn-space btn-default">Nein</button>
+              <button type="button" data-dismiss="modal" class="btn btn-space btn-warning">Ja</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

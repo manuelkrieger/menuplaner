@@ -13,9 +13,9 @@ abstract class AbstractDisableableEntity extends AbstractEntity
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="disabled_from", referencedColumnName="id")
+     * @ORM\JoinColumn(name="disabled_by", referencedColumnName="id")
      */
-    protected $disabledFrom;
+    protected $disabledBy;
 
     /**
      * Set disabledAt and disabledFrom
@@ -26,7 +26,7 @@ abstract class AbstractDisableableEntity extends AbstractEntity
     {
         $this->setUpdated($user);
         $this->setDisabledAt(new \DateTime());
-        $this->setDisabledFrom($user);
+        $this->setDisabledBy($user);
         return $this;
     }
 
@@ -57,13 +57,13 @@ abstract class AbstractDisableableEntity extends AbstractEntity
     /**
      * Set disabledFrom
      *
-     * @param \AppBundle\Entity\User $disabledFrom
+     * @param \AppBundle\Entity\User $disabledBy
      *
      * @return $this
      */
-    public function setDisabledFrom(\AppBundle\Entity\User $disabledFrom = null)
+    public function setDisabledBy(\AppBundle\Entity\User $disabledBy = null)
     {
-        $this->disabledFrom = $disabledFrom;
+        $this->disabledBy = $disabledBy;
 
         return $this;
     }
@@ -73,8 +73,8 @@ abstract class AbstractDisableableEntity extends AbstractEntity
      *
      * @return \AppBundle\Entity\User
      */
-    public function getDisabledFrom()
+    public function getDisabledBy()
     {
-        return $this->disabledFrom;
+        return $this->disabledBy;
     }
 }

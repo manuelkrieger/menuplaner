@@ -22,9 +22,9 @@ abstract class AbstractEntity
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="created_from", referencedColumnName="id")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
-    protected $createdFrom;
+    protected $createdBy;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -33,9 +33,9 @@ abstract class AbstractEntity
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="updated_from", referencedColumnName="id")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
-    protected $updatedFrom;
+    protected $updatedBy;
 
     /**
      * Set createdAt and createdFrom
@@ -45,7 +45,7 @@ abstract class AbstractEntity
     public function setCreated(\AppBundle\Entity\User $user)
     {
         $this->setCreatedAt(new \DateTime());
-        $this->setCreatedFrom($user);
+        $this->setCreatedBy($user);
         return $this;
     }
 
@@ -57,7 +57,7 @@ abstract class AbstractEntity
     public function setUpdated(\AppBundle\Entity\User $user)
     {
         $this->setUpdatedAt(new \DateTime());
-        $this->setUpdatedFrom($user);
+        $this->setUpdatedBy($user);
         return $this;
     }
 
@@ -132,13 +132,13 @@ abstract class AbstractEntity
     /**
      * Set createdFrom
      *
-     * @param \AppBundle\Entity\User $createdFrom
+     * @param \AppBundle\Entity\User $createdBy
      *
      * @return AbstractEntity
      */
-    public function setCreatedFrom(\AppBundle\Entity\User $createdFrom = null)
+    public function setCreatedBy(\AppBundle\Entity\User $createdBy = null)
     {
-        $this->createdFrom = $createdFrom;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -148,21 +148,21 @@ abstract class AbstractEntity
      *
      * @return \AppBundle\Entity\User
      */
-    public function getCreatedFrom()
+    public function getCreatedBy()
     {
-        return $this->createdFrom;
+        return $this->createdBy;
     }
 
     /**
      * Set updatedFrom
      *
-     * @param \AppBundle\Entity\User $updatedFrom
+     * @param \AppBundle\Entity\User $updatedBy
      *
      * @return AbstractEntity
      */
-    public function setUpdatedFrom(\AppBundle\Entity\User $updatedFrom = null)
+    public function setUpdatedBy(\AppBundle\Entity\User $updatedBy = null)
     {
-        $this->updatedFrom = $updatedFrom;
+        $this->updatedBy = $updatedBy;
 
         return $this;
     }
@@ -172,8 +172,8 @@ abstract class AbstractEntity
      *
      * @return \AppBundle\Entity\User
      */
-    public function getUpdatedFrom()
+    public function getUpdatedBy()
     {
-        return $this->updatedFrom;
+        return $this->updatedBy;
     }
 }

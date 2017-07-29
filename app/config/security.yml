@@ -14,10 +14,21 @@ security:
     role_hierarchy:
         ROLE_ADMIN:
             - ROLE_USER
+            - ROLE_FOOD_CRUD
+            - ROLE_FOOD_LIST
+            - ROLE_FOODGROUP_CRUD
             - ROLE_USER_CRUD
             - ROLE_USER_LIST
             - ROLE_UNITY_CRUD
             - ROLE_UNITY_LIST
+        ROLE_FOOD_CRUD:
+            - ROLE_FOOD_ADD
+            - ROLE_FOOD_EDIT
+            - ROLE_FOOD_DELETE
+        ROLE_FOODGROUP_CRUD:
+            - ROLE_FOODGROUP_ADD
+            - ROLE_FOODGROUP_EDIT
+            - ROLE_FOODGROUP_DELETE
         ROLE_USER_CRUD:
             - ROLE_USER_ADD
             - ROLE_USER_EDIT

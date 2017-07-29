@@ -1,5 +1,5 @@
-{% set dataTable = (dataTable is defined) ? dataTable : '' %}
-{% set tableStriped = (tableStriped is defined) ? tableStriped : '' %}
+{% set dataTable = dataTable | default('') %}
+{% set tableStriped = tableStriped | default('') %}
 <div class="panel panel-default panel-table">
   {% set panelHeaderBlock = block('panelHeader') %}
   {% if panelHeaderBlock is not empty %}

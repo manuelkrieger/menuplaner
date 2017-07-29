@@ -2,14 +2,13 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Param;
-use AppBundle\Entity\Unity;
+use AppBundle\Entity\Foodgroup;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class UnityType extends AbstractType
+class FoodgroupType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -19,11 +18,7 @@ class UnityType extends AbstractType
     {
         $builder
             ->add('name', null, [
-                'label' => 'unity.name',
-                'required' => true
-            ])
-            ->add('short', null, [
-                'label' => 'unity.short',
+                'label' => 'foodgroup.name',
                 'required' => true
             ]);
     }
@@ -31,7 +26,7 @@ class UnityType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Unity::class
+            'data_class' => Foodgroup::class
         ]);
     }
 }

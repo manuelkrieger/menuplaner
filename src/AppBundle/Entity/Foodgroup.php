@@ -5,10 +5,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FoodgroupRepository")
  * @ORM\Table(name="Foodgroup")
  */
-class Foodgroup extends AbstractEntity
+class Foodgroup extends AbstractDisableableEntity
 {
     /**
      * @var string

@@ -11,7 +11,10 @@
             {% if is_granted('ROLE_UNITY_CRUD') %}
               {{ navhelper.menuItem(path('unity_list'), 'ruler', 'Einheiten', isSameRoute('unity_list')) }}
             {% endif %}
-            {% if is_granted('ROLE_USER_CRUD') %}
+            {% if is_granted('ROLE_FOOD_LIST') %}
+              {{ navhelper.menuItem(path('food_list'), 'pizza', 'Lebensmittel', isSameRoute('food_list')) }}
+            {% endif %}
+            {% if is_granted('ROLE_USER_LIST') %}
               {{ navhelper.menuItem(path('users_list'), 'accounts', 'Benutzer', isSameRoute('users_list')) }}
             {% endif %}
             <li>

@@ -4,7 +4,7 @@ namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-class UnityRepository extends EntityRepository
+class FoodRepository extends EntityRepository
 {
 
     /**
@@ -14,7 +14,7 @@ class UnityRepository extends EntityRepository
     public function findByDefaultSort($criteria)
     {
         return $this->findBy($criteria, [
-            'label' => 'ASC'
+            'name' => 'ASC'
         ]);
     }
 
@@ -22,15 +22,6 @@ class UnityRepository extends EntityRepository
     {
         return $this->findByDefaultSort([
             'disabledAt' => null
-        ]);
-    }
-
-    public function findAllActiveSortByShort()
-    {
-        return $this->findBy([
-            'disabledAt' => null
-        ], [
-            'short' => 'ASC'
         ]);
     }
 }

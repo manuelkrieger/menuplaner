@@ -90,8 +90,8 @@
         <source>unity.edit</source>
         <target>Einheit bearbeiten</target>
       </trans-unit>
-      <trans-unit id="unity.label">
-        <source>unity.label</source>
+      <trans-unit id="unity.name">
+        <source>unity.name</source>
         <target>Bezeichnung</target>
       </trans-unit>
       <trans-unit id="unity.short">
@@ -109,6 +109,62 @@
       <trans-unit id="unity.deleted_successfully">
         <source>unity.deleted_successfully</source>
         <target>Einheit wurde erfolgreich gelöscht</target>
+      </trans-unit>
+      <trans-unit id="food.name">
+        <source>food.name</source>
+        <target>Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="food.group">
+        <source>food.group</source>
+        <target>Gruppe</target>
+      </trans-unit>
+      <trans-unit id="food.unity">
+        <source>food.unity</source>
+        <target>Einheit</target>
+      </trans-unit>
+      <trans-unit id="food.added_successfully">
+        <source>food.added_successfully</source>
+        <target>Lebensmittel wurde erfolgreich erfasst</target>
+      </trans-unit>
+      <trans-unit id="food.updated_successfully">
+        <source>food.updated_successfully</source>
+        <target>Lebensmittel wurde erfolgreich aktualisiert</target>
+      </trans-unit>
+      <trans-unit id="food.deleted_successfully">
+        <source>food.deleted_successfully</source>
+        <target>Lebensmittel wurde erfolgreich gelöscht</target>
+      </trans-unit>
+      <trans-unit id="food.add">
+        <source>food.add</source>
+        <target>Lebensmittel hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="food.edit">
+        <source>food.edit</source>
+        <target>Lebensmittel bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.name">
+        <source>foodgroup.name</source>
+        <target>Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.add">
+        <source>foodgroup.add</source>
+        <target>Gruppe hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.edit">
+        <source>foodgroup.edit</source>
+        <target>Gruppe bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.added_successfully">
+        <source>foodgroup.added_successfully</source>
+        <target>Gruppe wurde erfolgreich erfasst</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.updated_successfully">
+        <source>foodgroup.updated_successfully</source>
+        <target>Gruppe wurde erfolgreich aktualisiert</target>
+      </trans-unit>
+      <trans-unit id="foodgroup.deleted_successfully">
+        <source>foodgroup.deleted_successfully</source>
+        <target>Gruppe wurde erfolgreich gelöscht</target>
       </trans-unit>
     </body>
   </file>
