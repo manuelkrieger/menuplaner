@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="servicegroup.prefix_not_unique">
+        <source>servicegroup.prefix_not_unique</source>
+        <target>Eine Gruppe mit gleichem Nr-Präfix existiert bereits.</target>
+      </trans-unit>
+      <trans-unit id="serviceitem.nr_not_unique">
+        <source>serviceitem.nr_not_unique</source>
+        <target>Eine Serviceposition mit gleicher Nummer existiert bereits.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

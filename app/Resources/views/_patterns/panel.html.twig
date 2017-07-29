@@ -1,0 +1,22 @@
+{% set hasFooter = hasFooter is defined ? hasFooter : false %}
+{% set panelClass = panelClass is defined ? panelClass : '' %}
+<div class="panel panel-flat {{ panelClass }}">
+  <div class="panel-heading">
+    {% block panelHeader %}
+      default header
+    {% endblock %}
+  </div>
+  <div class="panel-body">
+    {% block panelContent %}
+      default content
+    {% endblock %}
+    {% if hasFooter %}
+      <div class="row xs-pt-15">
+        <div class="col-xs-12">
+          {% block panelFooter %}
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

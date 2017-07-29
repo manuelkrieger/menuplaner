@@ -1,0 +1,22 @@
+<aside class="page-aside">
+  <div class="be-scroller">
+    <div class="aside-content">
+      <div class="content">
+        <div class="aside-header">
+          <button data-target=".aside-nav" data-toggle="collapse" type="button" class="navbar-toggle">
+            <span class="icon mdi mdi-caret-down"></span>
+          </button>
+          <span class="title">{{ asideTitle }}</span>
+          <p class="description">{{ asideDescription }}</p>
+        </div>
+      </div>
+      <div class="aside-nav collapse">
+        <ul class="nav">
+          {% block asideNav %}
+            default header
+          {% endblock %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</aside>

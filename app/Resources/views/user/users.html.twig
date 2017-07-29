@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block actionbar %}
+    {% import '_macro/helper.twig' as helper %}
+    <div class="actionbar">
+        <div class="btn-group">
+            {% if is_granted('ROLE_USER_ADD') %}
+                {{ helper.button(path('user_add'), 'Benutzer hinzufügen', 'primary', 'account-add', 'btn-space') }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            {% embed '_patterns/panel_table.html.twig' %}
+                {% block panelHeader %}
+                    Benutzer
+                {% endblock %}
+                {% block panelContent %}
+                    {% import '_macro/helper.twig' as helper %}
+                    <thead>
+                    <tr>
+                        <th>{{ 'user.name'|trans }}</th>
+                        <th>{{ 'user.email'|trans }}</th>
+                        <th>{{ 'user.roles'|trans }}</th>
+                        <th>{{ 'user.actions'|trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                {% for role in user.getUserRoles %}
+                                    {{ role.name }} {{ loop.index > 0 and not loop.last ? ' | ' : '' }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <div>
+                                    {{ helper.button(path('user_edit', {'id': user.id}), '', 'info', 'edit', 'btn-sm', {'toggle':'tooltip', 'original-title':'Benutzer editieren' }) }}
+                                    {{ helper.button(path('password_change', {'id': user.id}), '', 'warning', 'lock-outline', 'btn-sm', {'toggle':'tooltip', 'original-title':'Passwort ändern' }) }}
+                                    {{ helper.button(path('user_delete', {'id': user.id}), '', 'danger', 'delete', 'btn-sm user-disable', {'name': user.name, 'toggle':'tooltip', 'original-title':'Benutzer löschen' }) }}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+    <div id="disable-modal" tabindex="-1" role="dialog" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
+                        <span class="mdi mdi-close"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="text-warning"><span class="modal-main-icon mdi mdi-alert-triangle"></span></div>
+                        <h3 class="modal-title">Warning!</h3>
+                        <p class="modal-body">[wird per JS gesetzt]</p>
+                        <div class="xs-mt-50">
+                            <button type="button" data-dismiss="modal" class="btn btn-space btn-default">Nein</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-space btn-warning">Ja</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

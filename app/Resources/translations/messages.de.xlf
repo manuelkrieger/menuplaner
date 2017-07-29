@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="success">
+        <source>success</source>
+        <target>Erfolg</target>
+      </trans-unit>
+      <trans-unit id="danger">
+        <source>danger</source>
+        <target>Achtung</target>
+      </trans-unit>
+      <trans-unit id="warning">
+        <source>warning</source>
+        <target>Warnung</target>
+      </trans-unit>
+      <trans-unit id="edit">
+        <source>edit</source>
+        <target>bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="save">
+        <source>save</source>
+        <target>Speichern</target>
+      </trans-unit>
+      <trans-unit id="user.name">
+        <source>user.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="user.email">
+        <source>user.email</source>
+        <target>E-Mail</target>
+      </trans-unit>
+      <trans-unit id="user.roles">
+        <source>user.roles</source>
+        <target>Benutzer-Rollen</target>
+      </trans-unit>
+      <trans-unit id="user.actions">
+        <source>user.actions</source>
+        <target>Aktion</target>
+      </trans-unit>
+      <trans-unit id="user.change_password">
+        <source>user.change_password</source>
+        <target>Passwort ändern</target>
+      </trans-unit>
+      <trans-unit id="user.password">
+        <source>user.password</source>
+        <target>Passwort</target>
+      </trans-unit>
+      <trans-unit id="user.password_repeat">
+        <source>user.password_repeat</source>
+        <target>Passwort wiederholen</target>
+      </trans-unit>
+      <trans-unit id="user.deactivate_user">
+        <source>user.deactivate_user</source>
+        <target>Benutzer deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="user.user_not_found">
+        <source>user.user_not_found</source>
+        <target>Kein passender Benutzer gefunden</target>
+      </trans-unit>
+      <trans-unit id="user.change_password_not_allowed">
+        <source>user.change_password_not_allowed</source>
+        <target>Passwort ändern für diesen Benutzer nicht erlaubt</target>
+      </trans-unit>
+      <trans-unit id="user.status">
+        <source>user.status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="user.change">
+        <source>user.change</source>
+        <target>Benutzer ändern</target>
+      </trans-unit>
+      <trans-unit id="user.add">
+        <source>user.add</source>
+        <target>Benutzer hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="user.username">
+        <source>user.username</source>
+        <target>Benutzername</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

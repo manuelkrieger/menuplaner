@@ -1,0 +1,8 @@
+{% macro menuItem(href, icon, label, isActive) %}
+  <li class="{{ isActive ? 'active' : '' }}">
+    <a href="{{ href }}">
+      <i class="icon mdi mdi-{{ icon }}"></i>
+      <span>{{ label }}</span>
+    </a>
+  </li>
+{% endmacro %}

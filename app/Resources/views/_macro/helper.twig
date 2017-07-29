@@ -1,0 +1,22 @@
+{% macro statusRow(status, label) %}
+  <tr class="{% if status %}text-success{% endif %}">
+    <td class="status-icon">
+      {% if status %}
+        <div class="icon"><span class="mdi mdi-check"></span></div>
+      {% else %}
+        <div class="icon"><span class="mdi mdi-close"></span></div>
+      {% endif %}
+    </td>
+    <td>{{ label }}</td>
+  </tr>
+{% endmacro %}
+
+{% macro button(path, text, type, icon, class, dataAttributes) %}
+  <a class="btn {{ type is defined ? 'btn-' ~ type : '' }} {{ class }}"
+     href="{{ path }}" {% for key,value in dataAttributes %} data-{{ key }}="{{ value }}" {% endfor %}>
+    {% if icon is defined %}
+      <i class="icon icon-left mdi mdi-{{ icon }}"></i>
+    {% endif %}
+    {{ text }}
+  </a>
+{% endmacro %}

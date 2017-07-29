@@ -1,0 +1,46 @@
+{% set bodyClass = 'be-splash-screen' %}
+{% extends 'layout.html.twig' %}
+{% block body %}
+  <div class="be-wrapper be-login">
+    <div class="be-content">
+      <div class="main-content container-fluid">
+        <div class="splash-container">
+          <div class="panel panel-default panel-border-color panel-border-color-primary">
+            <div class="panel-heading">
+              <h1>Menuplaner</h1>
+              <span class="splash-description">Bitte melden dich mit deinen Zugangsdaten an.</span>
+            </div>
+            <div class="panel-body">
+              {% if error %}
+                <div role="alert" class="alert alert-danger alert-icon alert-icon-border alert-dismissible">
+                  <div class="icon"><span class="mdi mdi-close-circle-o"></span></div>
+                  <div class="message">
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+                      <span aria-hidden="true" class="mdi mdi-close"></span>
+                    </button>{{ error.messageKey|trans(error.messageData, 'security') }}
+                  </div>
+                </div>
+              {% endif %}
+              <form action="{{ path('login') }}" method="post">
+                <div class="form-group">
+                  <input id="username" name="_username" type="text" placeholder="Benutzername"
+                         autocomplete="off" class="form-control" value="{{ last_username }}">
+                </div>
+                <div class="form-group">
+                  <input id="password" name="_password" type="password" placeholder="Passwort"
+                         class="form-control">
+                </div>
+                <div class="form-group login-submit">
+                  <button data-dismiss="modal" type="submit" class="btn btn-primary btn-xl">
+                    Anmelden
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="splash-footer"><span>&copy; {{ "now"|date("Y") }} menuplaner.info</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

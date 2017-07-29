@@ -1,0 +1,20 @@
+{% macro printAsCard(form, action, title, button) %}
+    {{ form_start(form, { method: 'POST', action: action }) }}
+    {% embed '_patterns/panel.html.twig' with {'hasFooter': true} %}
+        {% set panelClass = 'panel-border-color panel-border-color-primary' %}
+      {% block panelHeader %}
+            {{ title }}
+        {% endblock %}
+      {% block panelContent %}
+            {{ form_widget(form) }}
+        {% endblock %}
+      {% block panelFooter %}
+            <button class="btn btn-space btn-primary"><i class="icon icon-left mdi mdi-save"></i> {{ button }}
+            </button>
+            <button class="btn btn-space btn-danger"><i class="icon icon-left mdi mdi-undo"></i> Felder
+                zurücksetzen
+            </button>
+        {% endblock %}
+    {% endembed %}
+    {{ form_end(form) }}
+{% endmacro %}

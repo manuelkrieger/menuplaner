@@ -1,0 +1,18 @@
+{% set dataTable = (dataTable is defined) ? dataTable : '' %}
+{% set tableStriped = (tableStriped is defined) ? tableStriped : '' %}
+<div class="panel panel-default panel-table">
+  {% set panelHeaderBlock = block('panelHeader') %}
+  {% if panelHeaderBlock is not empty %}
+        <div class="panel-heading">
+          {{ panelHeaderBlock|raw }}
+        </div>
+    {% endif %}
+    <div class="panel-body">
+      <table
+        class="table table-hover table-fw-widget {{ dataTable ? 'toDataTable' : '' }} {{ tableStriped ? 'table-striped' : '' }}">
+          {% block panelContent %}
+                default content
+            {% endblock %}
+        </table>
+    </div>
+</div>

@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'layout.html.twig' %}
+{% set wrapperClass = (wrapperClass is not defined) ? '' : wrapperClass %}
+{% set pageTitle = (pageTitle is not defined) ? '' : pageTitle %}
+{% block body %}
+    <div class="be-wrapper be-fixed-sidebar {{ wrapperClass }}">
+        {% include 'partials/navigation.html.twig' %}
+        {% include 'partials/sidebar_left.html.twig' %}
+        <div class="be-content">
+            {% block aside %}
+            {% endblock %}
+            <div class="main-content container-fluid">
+                {% block actionbar %}
+                {% endblock %}
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        {% include 'partials/sidebar_right.html.twig' %}
+    </div>
+{% endblock %}
