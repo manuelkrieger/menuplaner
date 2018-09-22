@@ -1,4 +1,4 @@
-body{
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -29,12 +29,18 @@ body{
   }
 }
 
-#ingredients{
+#ingredients {
   width: 100%;
-  .col-qty{
+
+  .col-qty {
     width: 100px;
   }
-  .col-actions{
+
+  .col-unity {
+    width: 50px;
+  }
+
+  .col-actions {
     width: 50px;
     text-align: right;
   }

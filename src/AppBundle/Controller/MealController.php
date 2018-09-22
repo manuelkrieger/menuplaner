@@ -85,7 +85,8 @@ class MealController extends Controller
         return $this->render('meal/form.html.twig', [
             'form' => $form->createView(),
             'foods' => $foodsArray,
-            'title' => 'meal.add'
+            'title' => 'meal.add',
+            'ingredients' => []
         ]);
     }
 
@@ -102,6 +103,9 @@ class MealController extends Controller
             $this->addFlash('danger', 'action_not_allowed');
             return $this->redirectToRoute('meal_list');
         }
+
+        $foodRepository = $this->getDoctrine()->getRepository('AppBundle:Food');
+        $foodsArray = $foodRepository->getAllAsArray();
 
         $form = $this->createForm(MealType::class, $meal);
         $form->handleRequest($request);
@@ -122,7 +126,9 @@ class MealController extends Controller
 
         return $this->render('meal/form.html.twig', [
             'form' => $form->createView(),
-            'title' => 'meal.edit'
+            'title' => 'meal.edit',
+            'foods' => $foodsArray,
+            'ingredients' => $meal->getIngredients()
         ]);
     }
 

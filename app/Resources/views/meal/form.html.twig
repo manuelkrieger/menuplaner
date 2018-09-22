@@ -13,7 +13,7 @@
             <div class="col-sm-10">
               <select id="food" class="form-control input-sm select2">
                 {% for food in foods %}
-                  <option value="{{ food.id }}">{{ food.name }}</option>
+                  <option value="{{ food.id }}" data-unity="{{ food.unity.short }}">{{ food.name }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -29,12 +29,38 @@
             <tr>
               <th>{{ 'food.name'|trans }}</th>
               <th class="col-qty">{{ 'incredient.qty'|trans }}</th>
+              <th class="col-unity">{{ 'food.unity'|trans }}</th>
               <th class="col-actions"></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="no-ingredients">
-              <td colspan="3">(noch keine Zutaten erfasst)</td>
+            {% for ingredient in ingredients %}
+              <tr>
+                <td>{{ ingredient.food.name }}</td>
+                <td>
+                  <input
+                    type="number"
+                    name="ingredient[][{{ ingredient.food.id }}]"
+                    value="{{ ingredient.qty }}"
+                    class="form-control input-sm text-right"
+                  />
+                </td>
+                <td>{{ ingredient.food.unity.short }}</td>
+                <td>
+                  <a
+                    class="btn btn-danger btn-sm"
+                    href="#"
+                    onclick="removeIngredient(this);"
+                    data-toggle="tooltip"
+                    data-original-title="entfernen"
+                  >
+                    <i class="icon icon-left mdi mdi-close"></i>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+            <tr class="no-ingredients"{% if ingredients|length %} style="display: none;"{% endif %}>
+              <td colspan="4">(noch keine Zutaten erfasst)</td>
             </tr>
             </tbody>
           </table>
@@ -73,10 +99,12 @@
     $(document).ready(function () {
 
       $('#add-ingredient').click(function () {
+        var $selectedOption = $('#food option:selected');
         $('#ingredients tbody').append(
           '<tr>' +
-          '<td>' + $('#food option:selected').text() + '</td>' +
-          '<td><input type="number" name="ingredient[][' + $('#food option:selected').val() + ']" value="1" class="form-control input-sm text-right"/></td>' +
+          '<td>' + $selectedOption.text() + '</td>' +
+          '<td><input type="number" name="ingredient[][' + $selectedOption.val() + ']" value="1" class="form-control input-sm text-right"/></td>' +
+          '<td>' + $selectedOption.data('unity') + '</td>' +
           '<td><a class="btn btn-danger btn-sm" href="#" onclick="removeIngredient(this);"data-toggle="tooltip" data-original-title="entfernen">' +
           '<i class="icon icon-left mdi mdi-close"></i>' +
           '</a></td>' +
