@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    container_name: menuplaner
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: menuplaner
+    ports:
+      - 80:80
+    volumes:
+      - .:/srv/app
+    environment:
+      VIRTUAL_HOST: menuplaner.local
+networks:
+  default:
+    external:
+      name: dev-network
