@@ -14,7 +14,7 @@ class UnityRepository extends EntityRepository
     public function findByDefaultSort($criteria)
     {
         return $this->findBy($criteria, [
-            'label' => 'ASC'
+            'name' => 'ASC'
         ]);
     }
 
